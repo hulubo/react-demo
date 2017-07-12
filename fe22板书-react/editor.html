@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>editor</title>
+        <script src=http://cdn.bootcss.com/remarkable/1.7.1/remarkable.min.js>
+        </script>
+    </head>
+    <body>
+        <textarea id="id-src"></textarea>
+        <div id="id-output">
+
+        </div>
+        <script>
+            var e = sel => document.querySelector(sel)
+            e('#id-src').addEventListener('input', function(event) {
+                var md = new Remarkable()
+                var src = event.target.value
+                var html = md.render(src)
+                e('#id-output').innerHTML = html
+            })
+        </script>
+    </body>
+</html>
